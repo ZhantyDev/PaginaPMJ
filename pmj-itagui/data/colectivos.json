@@ -1,0 +1,58 @@
+[
+  {
+    "nombre": "Colectivo Semillas",
+    "categoria": "Ambiente",
+    "descripcion": "Promueve la siembra urbana y la cultura ambiental en barrios de Itagüí.",
+    "contacto": "semillas@itagui.gov.co",
+    "web": "https://example.com/semillas"
+  },
+  {
+    "nombre": "Laboratorio Joven",
+    "categoria": "Tecnología",
+    "descripcion": "Impulsa talleres de programación, electrónica y emprendimiento digital.",
+    "contacto": "labjoven@itagui.gov.co",
+    "web": "https://example.com/laboratorio-joven"
+  },
+  {
+    "nombre": "Movimiento ArteMente",
+    "categoria": "Arte",
+    "descripcion": "Fomenta expresiones artísticas colectivas y proyectos culturales juveniles.",
+    "contacto": "artemente@itagui.gov.co",
+    "web": "https://example.com/artemente"
+  },
+  {
+    "nombre": "Deportistas Itagüí",
+    "categoria": "Deporte",
+    "descripcion": "Red de jóvenes que promueven actividad física y hábitos saludables.",
+    "contacto": "deporte@itagui.gov.co",
+    "web": "https://example.com/deportistas"
+  },
+  {
+    "nombre": "Jóvenes Innovadores",
+    "categoria": "Tecnología",
+    "descripcion": "Espacio para el desarrollo de proyectos de innovación social y tecnológica.",
+    "contacto": "innovadores@itagui.gov.co",
+    "web": "https://example.com/innovadores"
+  },
+  {
+    "nombre": "Cultura Viva",
+    "categoria": "Arte",
+    "descripcion": "Crea escenarios para jóvenes creadores y agrupaciones culturales.",
+    "contacto": "culturaviva@itagui.gov.co",
+    "web": "https://example.com/culturaviva"
+  },
+  {
+    "nombre": "Guardianes Verdes",
+    "categoria": "Ambiente",
+    "descripcion": "Actividades de limpieza, reciclaje y educación ambiental en la ciudad.",
+    "contacto": "guardianes@itagui.gov.co",
+    "web": "https://example.com/guardianes"
+  },
+  {
+    "nombre": "Entrenamiento Juvenil",
+    "categoria": "Deporte",
+    "descripcion": "Promueve competencias y formación deportiva en comunidades juveniles.",
+    "contacto": "entrenamiento@itagui.gov.co",
+    "web": "https://example.com/entrenamiento"
+  }
+]
