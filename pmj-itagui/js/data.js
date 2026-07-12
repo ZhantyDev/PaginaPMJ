@@ -23,9 +23,9 @@ window.DATA = {
     }
   ],
   mesaDirectiva: [
-    { cargo: 'Presidente', nombre: 'Laura Herrera' },
-    { cargo: 'Secretario Técnico', nombre: 'Andrés Valencia' },
-    { cargo: 'Representante de Colectivos', nombre: 'Carolina Peña' }
+    { cargo: 'Presidente', nombre: 'Sammy García' },
+    { cargo: 'Secretario Técnico', nombre: 'Emily Urrego' },
+    { cargo: 'Representante de Colectivos', nombre: 'Santiago Aguirre' }
   ],
   comparativa: [
     {

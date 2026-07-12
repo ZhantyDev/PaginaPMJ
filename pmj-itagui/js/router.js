@@ -28,10 +28,10 @@ function updateBreadcrumb(route) {
     directorio: 'Directorio',
     tramites: 'Trámites / Únete'
   };
-  breadcrumbList.innerHTML = `
-    <li><a href="#inicio">Inicio</a></li>
-    <li>${labels[route] || 'Inicio'}</li>
-  `;
+  const label = labels[route] || 'Inicio';
+  breadcrumbList.innerHTML = route === 'inicio'
+    ? `<li>Inicio</li>`
+    : `<li><a href="#inicio">Inicio</a></li><li>${label}</li>`;
 }
 
 function updateBanner(route) {
