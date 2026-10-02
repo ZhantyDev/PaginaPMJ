@@ -196,7 +196,15 @@ async function loadColectivos() {
 
 function displayColectivos(colectivos) {
   const container = document.getElementById('colectivos-cards');
+  const emptyNote = document.getElementById('colectivos-empty-note');
   if (!container) return;
+
+  if (!colectivosCache.length) {
+    container.innerHTML = '';
+    if (emptyNote) emptyNote.style.display = 'block';
+    return;
+  }
+  if (emptyNote) emptyNote.style.display = 'none';
 
   if (!colectivos.length) {
     container.innerHTML = '<p>No se encontraron colectivos con esos criterios.</p>';
