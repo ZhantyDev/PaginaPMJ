@@ -7,6 +7,8 @@ window.views = {
         <p>${evento.resumen}</p>
       </article>
     `).join('');
+    const contacto = window.CONTACTO_ALEATORIO;
+    const telLimpio = contacto.telefono.replace(/[^\d+]/g, '');
 
     return `
       <section class="section-block">
@@ -17,6 +19,17 @@ window.views = {
         <h2>Próximos eventos</h2>
         <div class="card-grid">${eventos}</div>
       </section>
+      <section class="section-block">
+        <h2>¿Nos escribes? Hoy te atiende:</h2>
+        <p>Cada vez que recargas esta página, se elige al azar un integrante de la mesa directiva para mostrarte su contacto directo.</p>
+        <div class="card">
+          <h3>${contacto.nombre}</h3>
+          <p class="meta"><span class="highlight">${contacto.cargo}</span></p>
+          <p><strong>Teléfono:</strong> <a href="tel:${telLimpio}">${contacto.telefono}</a></p>
+          <p><strong>WhatsApp:</strong> <a href="https://wa.me/${telLimpio.replace('+', '')}" target="_blank" rel="noreferrer">Escribir por WhatsApp</a></p>
+        </div>
+        <p class="meta">También puedes escribirnos por Instagram: <a href="${window.DATA.contacto.instagram}" target="_blank" rel="noreferrer">${window.DATA.contacto.instagramHandle}</a></p>
+      </section>
     `;
   },
 
@@ -24,6 +37,9 @@ window.views = {
     const directiva = window.DATA.mesaDirectiva.map(miembro => `
       <li><strong>${miembro.cargo}:</strong> ${miembro.nombre}</li>
     `).join('');
+    const cargoPendiente = window.DATA.mesaDirectiva.some(m => m.cargo === 'Por confirmar')
+      ? '<p class="meta">El cargo de uno de los integrantes está pendiente de confirmación oficial.</p>'
+      : '';
 
     const filas = window.DATA.comparativa.map(item => `
       <tr>
@@ -45,6 +61,7 @@ window.views = {
       <section class="section-block">
         <h2>Mesa directiva</h2>
         <ul>${directiva}</ul>
+        ${cargoPendiente}
       </section>
       <section class="section-block">
         <h2>Comparativa PMJ vs. CMJ</h2>
@@ -86,6 +103,10 @@ window.views = {
       <section id="colectivos-list" class="section-block">
         <h2>Resultados</h2>
         <div id="colectivos-cards" class="card-grid"></div>
+        <p id="colectivos-empty-note" class="meta" style="display:none">
+          Aún no contamos con un directorio oficial de colectivos. Si representas uno,
+          puedes <a href="#tramites">inscribirlo aquí</a>.
+        </p>
       </section>
     `;
   },
