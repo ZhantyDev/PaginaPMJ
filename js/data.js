@@ -4,28 +4,18 @@ window.DATA = {
   description: 'La PMJ promueve la participación, el liderazgo y el tejido social de jóvenes en Itagüí.',
   eventos: [
     {
-      nombre: 'Foro de juventud y ciudadanía',
-      fecha: '12 de agosto de 2026',
-      lugar: 'Casa de la Cultura',
-      resumen: 'Encuentro para conocer los canales de participación local y socializar políticas públicas.'
-    },
-    {
-      nombre: 'Jornada de fortalecimiento creativo',
-      fecha: '24 de agosto de 2026',
-      lugar: 'Parque Principal',
-      resumen: 'Actividades artísticas para colectivos juveniles de Itagüí.'
-    },
-    {
-      nombre: 'Taller de innovación tecnológica',
-      fecha: '5 de septiembre de 2026',
-      lugar: 'Biblioteca Pública',
-      resumen: 'Sesión para jóvenes interesados en emprendimiento digital y TICs.'
+      nombre: 'Sesión PMJ',
+      fecha: 'Sábado 3 de octubre, 3:30 p. m.',
+      lugar: 'Casa de las Juventudes - Cra. 48 #85-10, San Fernando, Itagüí, Antioquia',
+      resumen: 'Sesión de la Plataforma Municipal de Juventudes. Información oficial publicada en @pmj_itagui.'
     }
   ],
+  // Mesa directiva confirmada por la PMJ. El cargo de Santiago Gaviria está pendiente de confirmar.
+  // Los teléfonos son PLACEHOLDER — reemplazar por los números reales antes de publicar.
   mesaDirectiva: [
-    { cargo: 'Presidente', nombre: 'Sammy García' },
-    { cargo: 'Secretario Técnico', nombre: 'Emily Urrego' },
-    { cargo: 'Representante de Colectivos', nombre: 'Santiago Aguirre' }
+    { cargo: 'Coordinadora', nombre: 'Sammy García', telefono: '+57 300 000 0001' },
+    { cargo: 'Coordinadora Auxiliar', nombre: 'Emily Urrego', telefono: '+57 300 000 0002' },
+    { cargo: 'Por confirmar', nombre: 'Santiago Gaviria', telefono: '+57 300 000 0003' }
   ],
   comparativa: [
     {
@@ -108,5 +98,20 @@ window.DATA = {
       contacto: 'entrenamiento@itagui.gov.co',
       web: 'https://example.com/entrenamiento'
     }
-  ]
+  ],
+  
+  contacto: {
+    instagram: 'https://www.instagram.com/pmj_itagui/',
+    instagramHandle: '@pmj_itagui',
+    direccion: 'Casa de las Juventudes - Cra. 48 #85-10, San Fernando, Itagüí, Antioquia',
+    nota: 'El contacto oficial de la PMJ es a través de esta página y de Instagram.'
+  }
 };
+
+// Se elige un integrante de la mesa directiva al azar en cada carga completa
+// de la página (no en cada cambio de vista dentro de la SPA). Recargar el
+// navegador vuelve a ejecutar este script y por lo tanto vuelve a sortear.
+window.CONTACTO_ALEATORIO = window.DATA.mesaDirectiva[
+  Math.floor(Math.random() * window.DATA.mesaDirectiva.length)
+];
+
