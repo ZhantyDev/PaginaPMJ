@@ -13,11 +13,14 @@
   <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
   <div class="accessibility-bar" id="accessibility-bar">
     <div class="container">
-      <span>Accesibilidad:</span>
-      <button id="btn-contrast" type="button" aria-pressed="false">Contraste</button>
-      <button id="btn-font-decrease" type="button">A-</button>
-      <button id="btn-font-increase" type="button">A+</button>
-      <button id="btn-font-reset" type="button">Restaurar</button>
+      <button id="accessibility-menu-toggle" class="accessibility-menu-toggle" type="button" aria-expanded="false" aria-controls="accessibility-controls">Accesibilidad</button>
+      <div class="accessibility-controls" id="accessibility-controls">
+        <span>Accesibilidad:</span>
+        <button id="btn-contrast" type="button" aria-pressed="false">Contraste</button>
+        <button id="btn-font-decrease" type="button">A-</button>
+        <button id="btn-font-increase" type="button">A+</button>
+        <button id="btn-font-reset" type="button">Restaurar</button>
+      </div>
     </div>
   </div>
   <header class="main-header">

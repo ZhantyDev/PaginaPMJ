@@ -125,10 +125,17 @@ function toggleMobileMenu() {
 }
 
 function initAccessibility() {
+  const accessibilityBar = document.getElementById('accessibility-bar');
+  const accessibilityMenuToggle = document.getElementById('accessibility-menu-toggle');
   const btnContrast = document.getElementById('btn-contrast');
   const btnDecrease = document.getElementById('btn-font-decrease');
   const btnIncrease = document.getElementById('btn-font-increase');
   const btnReset = document.getElementById('btn-font-reset');
+
+  accessibilityMenuToggle.addEventListener('click', () => {
+    const isOpen = accessibilityBar.classList.toggle('open');
+    accessibilityMenuToggle.setAttribute('aria-expanded', String(isOpen));
+  });
 
   btnContrast.addEventListener('click', () => {
     const isActive = document.body.classList.toggle('high-contrast');

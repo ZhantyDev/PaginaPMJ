@@ -146,10 +146,20 @@ body.high-contrast :focus-visible {
 .accessibility-bar .container {
   display: inline-flex;
   flex-wrap: wrap;
-  gap: 0.45rem;
   align-items: center;
   justify-content: flex-start;
   padding: 0.45rem 1rem;
+}
+
+.accessibility-bar .accessibility-menu-toggle {
+  display: none;
+}
+
+.accessibility-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
 }
 
 .accessibility-bar span {
@@ -494,6 +504,34 @@ button.secondary:hover,
   .accessibility-bar .container {
     flex-direction: column;
     align-items: stretch;
+    gap: 0.3rem;
+  }
+
+  .accessibility-bar .accessibility-menu-toggle {
+    display: block;
+    padding: 0.45rem 0;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    font: inherit;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .accessibility-controls {
+    display: none;
+  }
+
+  .accessibility-bar.open .accessibility-controls {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.45rem;
+    padding: 0.35rem 0 0.25rem;
+  }
+
+  .accessibility-controls > span {
+    display: none;
   }
 
 
