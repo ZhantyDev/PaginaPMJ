@@ -124,25 +124,26 @@ window.views = {
       </section>
       <section class="section-block">
         <h2>Formulario de inscripción</h2>
-        <p>Complete el formulario. Al enviar, se simula la respuesta con un mensaje. En producción puede conectarse a Formspree o Web3Forms.</p>
+        <p>Complete el formulario para que la PMJ se comunique con usted o su colectivo.</p>
         <form id="inscripcion-form">
           <div class="form-field">
             <label for="nombre">Nombre completo</label>
-            <input id="nombre" name="nombre" type="text" required />
+            <input id="nombre" name="nombre" type="text" required minlength="3" />
           </div>
           <div class="form-field">
             <label for="correo">Correo electrónico</label>
             <input id="correo" name="correo" type="email" required />
           </div>
           <div class="form-field">
-            <label for="colectivo">Colectivo o grupo</label>
+            <label for="colectivo">Colectivo o grupo (opcional)</label>
             <input id="colectivo" name="colectivo" type="text" />
           </div>
           <div class="form-field">
             <label for="motivo">¿Por qué desea unirse?</label>
-            <textarea id="motivo" name="motivo" required></textarea>
+            <textarea id="motivo" name="motivo" required minlength="10"></textarea>
           </div>
-          <button class="primary" type="submit">Enviar inscripción</button>
+          <button class="primary" type="submit" id="submit-inscripcion">Enviar inscripción</button>
+          <p id="form-status" class="meta" role="status" aria-live="polite"></p>
         </form>
       </section>
     `;

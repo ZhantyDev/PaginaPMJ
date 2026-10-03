@@ -17,8 +17,21 @@ const routes = {
   tramites: window.views.tramites
 };
 
+const VALID_ROUTES = ['inicio', 'acerca', 'directorio', 'tramites'];
+const DEFAULT_ROUTE = 'inicio';
+
 function currentRoute() {
-  return window.location.hash.replace('#', '') || 'inicio';
+  // Normaliza el hash: sin '#', sin espacios, en minúsculas.
+  const raw = window.location.hash.replace('#', '').trim().toLowerCase();
+  if (!raw) return DEFAULT_ROUTE;
+  if (!VALID_ROUTES.includes(raw)) {
+    // Ruta inexistente (p. ej. '#loquesea' o un hash mal escrito):
+    // se corrige la URL para que coincida con lo que realmente se muestra,
+    // en vez de dejar un hash inválido en la barra de direcciones.
+    history.replaceState({ route: DEFAULT_ROUTE }, '', `#${DEFAULT_ROUTE}`);
+    return DEFAULT_ROUTE;
+  }
+  return raw;
 }
 
 function updateBreadcrumb(route) {
@@ -171,13 +184,26 @@ function initViewListeners(route) {
 
   if (route === 'tramites') {
     const form = document.getElementById('inscripcion-form');
+    const statusMsg = document.getElementById('form-status');
+    const submitBtn = document.getElementById('submit-inscripcion');
+
     form.addEventListener('submit', (event) => {
       event.preventDefault();
       const nombre = form.querySelector('#nombre').value.trim();
-      const correo = form.querySelector('#correo').value.trim();
-      const colectivo = form.querySelector('#colectivo').value.trim();
-      alert(`Gracias, ${nombre}. Hemos recibido su solicitud y pronto nos comunicaremos al correo ${correo}.`);
+
+      // Solo visual por ahora: no hay envío real a ningún servicio/backend.
+      // (Conexión real con Formspree/Web3Forms queda pendiente para más adelante.)
+      statusMsg.textContent = `¡Gracias, ${nombre || 'joven'}! Tu solicitud fue registrada. Pronto nos comunicaremos contigo.`;
+      statusMsg.classList.add('form-status--success');
+      submitBtn.disabled = true;
+
       form.reset();
+
+      setTimeout(() => {
+        statusMsg.textContent = '';
+        statusMsg.classList.remove('form-status--success');
+        submitBtn.disabled = false;
+      }, 4000);
     });
   }
 }
