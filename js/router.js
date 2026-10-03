@@ -78,7 +78,13 @@ function updateBanner(route) {
 
 function setActiveNav(route) {
   navLinks.forEach(link => {
-    link.classList.toggle('active', link.getAttribute('href') === `#${route}`);
+    const isActive = link.getAttribute('href') === `#${route}`;
+    link.classList.toggle('active', isActive);
+    if (isActive) {
+      link.setAttribute('aria-current', 'page');
+    } else {
+      link.removeAttribute('aria-current');
+    }
   });
 }
 
@@ -91,6 +97,13 @@ function render() {
   setActiveNav(route);
   closeMobileMenu();
   initViewListeners(route);
+
+  // En una SPA, cambiar de "ruta" no recarga la página, así que el navegador
+  // no mueve el foco ni el scroll por sí solo. Sin esto, un usuario de teclado
+  // o de lector de pantalla se queda "parado" donde estaba al hacer clic,
+  // en vez de llegar al contenido nuevo.
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  viewContainer.focus({ preventScroll: true });
 }
 
 function navigate(route) {
@@ -103,10 +116,12 @@ function navigate(route) {
 
 function closeMobileMenu() {
   mainNav.classList.remove('open');
+  mobileMenuToggle.setAttribute('aria-expanded', 'false');
 }
 
 function toggleMobileMenu() {
-  mainNav.classList.toggle('open');
+  const isOpen = mainNav.classList.toggle('open');
+  mobileMenuToggle.setAttribute('aria-expanded', String(isOpen));
 }
 
 function initAccessibility() {
@@ -116,7 +131,8 @@ function initAccessibility() {
   const btnReset = document.getElementById('btn-font-reset');
 
   btnContrast.addEventListener('click', () => {
-    document.body.classList.toggle('high-contrast');
+    const isActive = document.body.classList.toggle('high-contrast');
+    btnContrast.setAttribute('aria-pressed', String(isActive));
   });
 
   btnIncrease.addEventListener('click', () => {
@@ -129,6 +145,8 @@ function initAccessibility() {
 
   btnReset.addEventListener('click', () => {
     document.documentElement.style.setProperty('--base-font-size', '16px');
+    document.body.classList.remove('high-contrast');
+    btnContrast.setAttribute('aria-pressed', 'false');
   });
 }
 
