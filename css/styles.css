@@ -30,6 +30,86 @@ body {
 body.high-contrast {
   background: #FFFFFF;
   color: #000000;
+  font-weight: 500;
+}
+
+body.high-contrast .section-block,
+body.high-contrast .card {
+  background: #FFFFFF;
+  border-color: var(--primary-dark);
+  color: #000000;
+}
+
+body.high-contrast .banner-copy #banner-category,
+body.high-contrast .breadcrumb,
+body.high-contrast .breadcrumb span,
+body.high-contrast .section-block h2,
+body.high-contrast .card .meta {
+  color: var(--primary-dark);
+}
+
+body.high-contrast a {
+  color: var(--primary-dark);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+body.high-contrast .brand,
+body.high-contrast .main-nav a,
+body.high-contrast .site-footer a {
+  color: #FFFFFF;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+body.high-contrast .accessibility-bar button {
+  border: 2px solid #FFFFFF;
+  font-weight: 700;
+}
+
+body.high-contrast .section-block td,
+body.high-contrast .form-field input,
+body.high-contrast .form-field select,
+body.high-contrast .form-field textarea {
+  background: #FFFFFF;
+  border: 2px solid var(--primary-dark);
+  color: #000000;
+}
+
+body.high-contrast .section-block .highlight {
+  background: var(--accent2);
+  color: #000000;
+  font-weight: 700;
+}
+
+body.high-contrast .form-status--success {
+  color: var(--primary-dark);
+  font-weight: 700;
+}
+
+body.high-contrast button.primary {
+  background: var(--accent);
+  border: 2px solid var(--primary-dark);
+  color: #000000;
+  font-weight: 700;
+}
+
+body.high-contrast button.secondary {
+  background: var(--primary);
+  border: 2px solid var(--primary-dark);
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+body.high-contrast .scroll-top {
+  background: var(--accent);
+  border: 2px solid var(--primary-dark);
+  color: #000000;
+}
+
+body.high-contrast :focus-visible {
+  outline: 3px solid var(--primary-dark);
+  outline-offset: 3px;
 }
 
 .container {
@@ -389,6 +469,13 @@ button.secondary:hover,
     align-items: stretch;
   }
 
+
+.form-status--success {
+  color: var(--accent2, #9D7EB9);
+  font-weight: 600;
+  margin-top: 10px;
+  transition: opacity 0.3s ease;
+}
   .banner-copy h1 {
     font-size: 2rem;
   }
